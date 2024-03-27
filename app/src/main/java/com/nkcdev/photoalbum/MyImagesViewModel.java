@@ -33,7 +33,7 @@ public class MyImagesViewModel extends AndroidViewModel {
         repository.delete(myImages);
     }
 
-    public LiveData<List<MyImages>> getAllNotes() {
+    public LiveData<List<MyImages>> getAllImages() {
         return imagesList;
     }
 }
