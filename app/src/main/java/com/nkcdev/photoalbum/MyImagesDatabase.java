@@ -18,6 +18,7 @@ public abstract class MyImagesDatabase extends RoomDatabase {
             //Creating database
             instance = Room.databaseBuilder(context.getApplicationContext()
                             , MyImagesDatabase.class, "my_images_database")
+                   // .allowMainThreadQueries() -> not recommended
                     .fallbackToDestructiveMigration()
                     .build();
         }
