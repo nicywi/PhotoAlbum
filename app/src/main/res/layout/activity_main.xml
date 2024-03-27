@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:labelFor="@+id/fab"
+        android:contentDescription="@string/app_name"
         android:clickable="false"
         app:backgroundTint="@color/material_dynamic_neutral95"
         app:layout_constraintBottom_toBottomOf="parent"
