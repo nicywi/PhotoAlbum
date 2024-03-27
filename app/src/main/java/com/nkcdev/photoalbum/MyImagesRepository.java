@@ -12,7 +12,7 @@ public class MyImagesRepository {
 
     private MyImagesDao myImagesDao;
 
-    private LiveData<List<MyImages>> my_images;
+    private LiveData<List<MyImages>> imagesList;
 
     ExecutorService executors = Executors.newSingleThreadExecutor();
 
@@ -20,7 +20,7 @@ public class MyImagesRepository {
 
         MyImagesDatabase database = MyImagesDatabase.getInstance(application);
         myImagesDao = database.myImagesDao();
-        my_images = myImagesDao.getAllImages();
+        imagesList = myImagesDao.getAllImages();
     }
 
     public void insert(MyImages myImages) {
@@ -51,7 +51,7 @@ public class MyImagesRepository {
         });
     }
 
-    public LiveData<List<MyImages>> getAllNotes() {
-        return my_images;
+    public LiveData<List<MyImages>> getAllImages() {
+        return imagesList;
     }
 }
