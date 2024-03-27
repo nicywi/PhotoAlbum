@@ -3,6 +3,7 @@ package com.nkcdev.photoalbum;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -27,12 +28,18 @@ public class MainActivity extends AppCompatActivity {
         rv = findViewById(R.id.rc);
         fab = findViewById(R.id.fab);
 
+        rv.setLayoutManager(new LinearLayoutManager(this));
+
+        MyImagesAdapter adapter = new MyImagesAdapter();
+        rv.setAdapter(adapter);
+
+
         myImagesViewModel = new ViewModelProvider.AndroidViewModelFactory(getApplication())
                 .create(MyImagesViewModel.class);
         myImagesViewModel.getAllImages().observe(MainActivity.this, new Observer<List<MyImages>>() {
             @Override
             public void onChanged(List<MyImages> myImages) {
-
+                adapter.setImagesList(myImages);
             }
         });
 

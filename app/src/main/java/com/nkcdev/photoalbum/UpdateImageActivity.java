@@ -20,7 +20,7 @@ public class UpdateImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_image);
 
-        getSupportActionBar().setTitle("Add Image");
+        getSupportActionBar().setTitle("Update Image");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_add_image);
 
