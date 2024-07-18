@@ -88,8 +88,15 @@ public class AddImageActivity extends AppCompatActivity {
                 String description = editTextAddDescription.getText().toString();
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 scaledImage = makeSmall(selectedImage, 300);
-                selectedImage.compress(Bitmap.CompressFormat.PNG,50,outputStream);
+                scaledImage.compress(Bitmap.CompressFormat.PNG,50,outputStream);
                 byte[] image = outputStream.toByteArray();
+
+                Intent intent = new Intent();
+                intent.putExtra("title", title);
+                intent.putExtra("description", description);
+                intent.putExtra("image", image);
+                setResult(RESULT_OK, intent);
+                finish();
 
                 }
             }

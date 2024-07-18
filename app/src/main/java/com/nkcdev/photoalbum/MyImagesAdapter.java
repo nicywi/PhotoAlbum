@@ -1,10 +1,10 @@
 package com.nkcdev.photoalbum;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -23,6 +23,10 @@ public class MyImagesAdapter extends RecyclerView.Adapter<MyImagesAdapter.MyImag
         notifyDataSetChanged();
     }
 
+    public MyImages getPosition(int position){
+        return imagesList.get(position);
+    }
+
     @NonNull
     @Override
     public MyImagesHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -35,9 +39,10 @@ public class MyImagesAdapter extends RecyclerView.Adapter<MyImagesAdapter.MyImag
     @Override
     public void onBindViewHolder(@NonNull MyImagesHolder holder, int position) {
 
-        MyImages currentImage = imagesList.get(position);
-        holder.editTextAddTitle.setText(currentImage.getImage_title());
-        holder.editTextAddDescription.setText(currentImage.getImage_description());
+        MyImages myImages = imagesList.get(position);
+        holder.textViewTitle.setText(myImages.getImage_title());
+        holder.textViewDescription.setText(myImages.getImage_description());
+        holder.imageView.setImageBitmap(BitmapFactory.decodeByteArray(myImages.getImage(), 0, myImages.getImage().length));
 
     }
 
@@ -48,15 +53,15 @@ public class MyImagesAdapter extends RecyclerView.Adapter<MyImagesAdapter.MyImag
 
     public class MyImagesHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
-        EditText editTextAddTitle, editTextAddDescription;
+        EditText textViewTitle, textViewDescription;
 
 
         public MyImagesHolder(@NonNull View itemView) {
             super(itemView);
 
             imageView = itemView.findViewById(R.id.imageViewAddImage);
-            editTextAddTitle  = itemView.findViewById(R.id.editTextAddTitle);
-            editTextAddDescription  = itemView.findViewById(R.id.editTextAddDescription);
+            textViewTitle = itemView.findViewById(R.id.editTextAddTitle);
+            textViewDescription = itemView.findViewById(R.id.editTextAddDescription);
 
         }
     }
