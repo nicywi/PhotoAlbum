@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddImageActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayoutAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/myThemeColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarAdd"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@color/white"
+            app:title="Photo Album"
+            app:navigationIcon="@drawable/arrow_back"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <ImageView
         android:id="@+id/imageViewAddImage"
@@ -15,8 +36,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        app:layout_constraintTop_toBottomOf="@id/appBarLayoutAdd"
+        app:srcCompat="@drawable/select_image" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,6 +45,8 @@
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewAddImage">
 
         <EditText
@@ -33,8 +56,8 @@
             android:layout_margin="10dp"
             android:ems="10"
             android:hint="Add Title"
-            android:inputType="text"
-            android:textSize="20sp" />
+            android:inputType="textPersonName"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/editTextAddDescription"
@@ -44,14 +67,18 @@
             android:ems="10"
             android:gravity="start|top"
             android:hint="Add Description"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/buttonSave"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Save"
-            android:textSize="20sp" />
+            android:background="@color/myThemeColor"
+            android:text="SAVE"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

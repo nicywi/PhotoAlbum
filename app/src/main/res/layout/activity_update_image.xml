@@ -2,9 +2,29 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UpdateImageActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayoutUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/myThemeColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@color/white"
+            app:title="Update Image"
+            app:navigationIcon="@drawable/arrow_back"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <ImageView
         android:id="@+id/imageViewUpdateImage"
@@ -15,8 +35,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayoutUpdate"
+        app:srcCompat="@drawable/select_image" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,6 +44,8 @@
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewUpdateImage">
 
         <EditText
@@ -32,9 +54,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
-            android:hint="Update Title"
-            android:inputType="text"
-            android:textSize="20sp" />
+            android:hint="Add Title"
+            android:inputType="textPersonName"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/editTextUpdateDescription"
@@ -43,15 +65,20 @@
             android:layout_margin="10dp"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="Update Description"
-            android:inputType="textMultiLine" />
+            android:hint="Add Description"
+            android:inputType="textMultiLine"
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/buttonUpdate"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Update"
-            android:textSize="20sp" />
+            android:background="@color/myThemeColor"
+            android:text="UPDATE"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
